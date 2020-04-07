@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The purpose of this project is to solve Compare the Triplets challenge in Hackerrank</h1>
+    <h3>Enter the numbers you want to compare below and separate by comma with no space:</h3>
+    <span>firstPerson </span><input type="text" name="" id="firstPerson"><br><br>
+    <span>secondPerson </span><input type="text" name="" id="secondPerson"><br><br>
+    
+    <button onclick="getValue()">Compare</button><br><br>
+     <span>Answer = </span><span id="solution"></span>
+    <script>
+
+        function getValue() {
+            
+            // split() converts the string input to an array i.e ["2","3","4", . . .];
+            let firstPerson = (document.getElementById('firstPerson').value).split(",");
+            let secondPerson = (document.getElementById('secondPerson').value).split(",");
+            // alert(firstPerson);
+            document.getElementById('solution').innerHTML = compareScoresArray(firstPerson,secondPerson);
+        }
+
+        
+        function compareScoresArray(firstPerson,secondPerson) {
+            let totalScoreCompared = [];
+            let firstPersonScore = 0;
+            let secondPersonScore = 0;
+
+            // Since the length of array of both persons are thesame, any one of them can be used for loop iteration
+            for (let i = 0; i < firstPerson.length; i++) {
+
+                if (Number(firstPerson[i]) > Number(secondPerson[i])) {
+                    firstPersonScore += 1;
+                }
+                else if (Number(firstPerson[i]) < Number(secondPerson[i])) {
+                    secondPersonScore += 1;
+                }
+            }
+
+            totalScoreCompared.push(firstPersonScore);
+            totalScoreCompared.push(secondPersonScore);
+
+            console.log(totalScoreCompared);
+            return totalScoreCompared;
+        }
+        
+
+    </script>
+</body>
+</html>
